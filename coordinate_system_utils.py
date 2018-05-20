@@ -117,7 +117,24 @@ def get_shapes_intersections(shape1, shape2) :
 
 
 def get_lines_intersections(line1, line2):
-    pass
+    """
+    Calculates the intersecting points of the two infinite straight lines
+    Line format: ((x1,y1),(x2,y2))
+    """
+    x1 = line1[0][0]
+    x2 = line1[1][0]
+    y1 = line1[0][1]
+    y2 = line1[1][1]
+    x3 = line2[0][0]
+    x4 = line2[1][0]
+    y3 = line2[0][1]
+    y4 = line2[1][1]
+    det = (y2-y1) * (x3-x4) - (x1-x2) * (y4-y3)
+    if  det == 0:
+        return None
+    xdet = (x1*y2-y1*x2) * (x3-x4) - (x1-x2) * (x3*y4-y3*x4)
+    ydet = (y2-y1) * (x3*y4-y3*x4) - (x1*y2-y1*x2) * (y4-y3)
+    return xdet/det, ydet/det
 
 
 def get_lines_segments_intersections(line1, line2):
