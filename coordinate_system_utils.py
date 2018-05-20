@@ -101,11 +101,26 @@ def get_visual_center():
     pass
 
 
-def get_intersections(points1,points2) :
+def get_shapes_intersections(shape1, shape2) :
     """
     Returns the intersection points of the 2 shapes\n
-    Format for points: ((x1,y1),(x2,y2),(x3,y3))\n
+    Format for shapes: ((x1,y1),(x2,y2),(x3,y3))\n
     """
+    shape1 = shape1 + (shape1[0],)
+    shape2 = shape2 + (shape2[0],)
+    # Start with a line from the first shape then go through all
+    # the lines in the other shape and see if there is an intersection.
+    for i in range(len(shape1)-1):
+        for j in range(len(shape2) - 1):
+            # Use cramer's rule to get the intersection
+            pass
+
+
+def get_lines_intersections(line1, line2):
+    pass
+
+
+def get_lines_segments_intersections(line1, line2):
     pass
 
 
@@ -114,6 +129,10 @@ def is_inside(inner_points,outer_points):
     Returns True if all the inner_points are enclosed by the outer_points' shape\n
     Format for points: ((x1,y1),(x2,y2),(x3,y3))
     """
+    pass
+
+
+def get_line_length(point1, point2):
     pass
 
 
